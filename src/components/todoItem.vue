@@ -6,61 +6,51 @@
   </li>
 </template>
 <script>
-
-  export default {
-    name: 'todoItem',
-    data () {
-      return {}
+export default {
+  name: 'todoItem',
+  data() {
+    return {};
+  },
+  props: ['item'],
+  methods: {
+    handelDelete() {
+      this.$emit('delete', this.item.id);
     },
-    props: ['item'],
-    methods: {
-      handelDelete () {
-        this.$emit('delete', this.item.id)
-      },
-      update () {
-        let newVal = this.$refs.val.innerHTML
-        this.item.value = newVal
-      },
-      check () {
-        this.$emit('check', this.item.id)
-      },
+    update() {
+      let newVal = this.$refs.val.innerHTML;
+      this.item.value = newVal;
     },
-    watch: {
-      item: {
-        handler (item) {
-          // debugger
-        },
-        immediate: true,
-        deep: true
-      }
+    check() {
+      this.$emit('check', this.item.id);
     }
   }
+};
 </script>
 <style scoped lang="less">
-  .todoItem {
-    position: relative;
-    text-align: left;
-    display: block;
-    overflow: hidden;
-    padding: 10px 15px;
-    margin-bottom: -1px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-  }
+.todoItem {
+  position: relative;
+  text-align: left;
+  display: block;
+  overflow: hidden;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
 
-  .todoItem:first-child {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
+.todoItem:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
 
-  .todoItem:last-child {
-    margin-bottom: 0;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-  }
+.todoItem:last-child {
+  margin-bottom: 0;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
 
-  .el-button {
-    float: right;
-    clear: both;
-  }
+.el-button {
+  float: right;
+  clear: both;
+}
 </style>
