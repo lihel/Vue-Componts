@@ -52,10 +52,10 @@ export default {
       todo: '',
       list: [],
       countTodo: 0,
-      countDone: 0
+      countDone: 0,
     };
   },
-  components: { todoItem },
+  components: {todoItem},
   methods: {
     input() {
       this.list.push({ id: this.id++, value: this.todo, done: false });
@@ -103,8 +103,8 @@ export default {
           return item;
         }
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
